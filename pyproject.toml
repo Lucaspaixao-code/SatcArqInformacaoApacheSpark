@@ -1,0 +1,17 @@
+[project]
+name = "satcarqinformacaoapachespark"
+version = "0.1.0"
+description = "Projeto de engenharia de dados com apache-spark com delta lake e iceberg"
+authors = [
+    {name = "iuri",email = "iurilmarques@hotmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mkdocs (>=1.6.1,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
