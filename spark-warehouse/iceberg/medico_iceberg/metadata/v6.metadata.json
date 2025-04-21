@@ -1,0 +1,215 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "84dc5882-e0c0-46d5-9976-135c7a38e4be",
+  "location" : "spark-warehouse/iceberg/medico_iceberg",
+  "last-sequence-number" : 4,
+  "last-updated-ms" : 1745199705046,
+  "last-column-id" : 5,
+  "current-schema-id" : 1,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "id",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "nome",
+      "required" : false,
+      "type" : "string"
+    } ]
+  }, {
+    "type" : "struct",
+    "schema-id" : 1,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "id",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "nome",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "registro",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "especialidade",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "telefone",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "ed",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 6577896904133096106,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 6577896904133096106,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7269716963625368739,
+    "timestamp-ms" : 1745199691576,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1745199680330",
+      "added-data-files" : "3",
+      "added-records" : "3",
+      "added-files-size" : "1880",
+      "changed-partition-count" : "1",
+      "total-records" : "3",
+      "total-files-size" : "1880",
+      "total-data-files" : "3",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0",
+      "engine-version" : "3.5.5",
+      "app-id" : "local-1745199680330",
+      "engine-name" : "spark",
+      "iceberg-version" : "Apache Iceberg 1.6.1 (commit 8e9d59d299be42b0bca9461457cd1e95dbaad086)"
+    },
+    "manifest-list" : "spark-warehouse/iceberg/medico_iceberg/metadata/snap-7269716963625368739-1-ca2ce90a-69e6-4958-b892-5570d438a10f.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 1993312521485927747,
+    "parent-snapshot-id" : 7269716963625368739,
+    "timestamp-ms" : 1745199699995,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1745199680330",
+      "added-data-files" : "1",
+      "deleted-data-files" : "1",
+      "added-records" : "1",
+      "deleted-records" : "1",
+      "added-files-size" : "1528",
+      "removed-files-size" : "639",
+      "changed-partition-count" : "1",
+      "total-records" : "3",
+      "total-files-size" : "2769",
+      "total-data-files" : "3",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0",
+      "engine-version" : "3.5.5",
+      "app-id" : "local-1745199680330",
+      "engine-name" : "spark",
+      "iceberg-version" : "Apache Iceberg 1.6.1 (commit 8e9d59d299be42b0bca9461457cd1e95dbaad086)"
+    },
+    "manifest-list" : "spark-warehouse/iceberg/medico_iceberg/metadata/snap-1993312521485927747-1-ad500187-b547-4d8b-a23c-6819c1307102.avro",
+    "schema-id" : 1
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 4034203313863952253,
+    "parent-snapshot-id" : 1993312521485927747,
+    "timestamp-ms" : 1745199703312,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1745199680330",
+      "added-data-files" : "1",
+      "deleted-data-files" : "1",
+      "added-records" : "1",
+      "deleted-records" : "1",
+      "added-files-size" : "1492",
+      "removed-files-size" : "618",
+      "changed-partition-count" : "1",
+      "total-records" : "3",
+      "total-files-size" : "3643",
+      "total-data-files" : "3",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0",
+      "engine-version" : "3.5.5",
+      "app-id" : "local-1745199680330",
+      "engine-name" : "spark",
+      "iceberg-version" : "Apache Iceberg 1.6.1 (commit 8e9d59d299be42b0bca9461457cd1e95dbaad086)"
+    },
+    "manifest-list" : "spark-warehouse/iceberg/medico_iceberg/metadata/snap-4034203313863952253-1-4ce6abbe-be7a-4d55-9d28-6ae007ff872e.avro",
+    "schema-id" : 1
+  }, {
+    "sequence-number" : 4,
+    "snapshot-id" : 6577896904133096106,
+    "parent-snapshot-id" : 4034203313863952253,
+    "timestamp-ms" : 1745199705046,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1745199680330",
+      "added-data-files" : "1",
+      "deleted-data-files" : "1",
+      "added-records" : "1",
+      "deleted-records" : "1",
+      "added-files-size" : "1514",
+      "removed-files-size" : "623",
+      "changed-partition-count" : "1",
+      "total-records" : "3",
+      "total-files-size" : "4534",
+      "total-data-files" : "3",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0",
+      "engine-version" : "3.5.5",
+      "app-id" : "local-1745199680330",
+      "engine-name" : "spark",
+      "iceberg-version" : "Apache Iceberg 1.6.1 (commit 8e9d59d299be42b0bca9461457cd1e95dbaad086)"
+    },
+    "manifest-list" : "spark-warehouse/iceberg/medico_iceberg/metadata/snap-6577896904133096106-1-79940795-bc33-4f31-9887-574a9c79cb95.avro",
+    "schema-id" : 1
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1745199691576,
+    "snapshot-id" : 7269716963625368739
+  }, {
+    "timestamp-ms" : 1745199699995,
+    "snapshot-id" : 1993312521485927747
+  }, {
+    "timestamp-ms" : 1745199703312,
+    "snapshot-id" : 4034203313863952253
+  }, {
+    "timestamp-ms" : 1745199705046,
+    "snapshot-id" : 6577896904133096106
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1745199685222,
+    "metadata-file" : "spark-warehouse/iceberg/medico_iceberg/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1745199691576,
+    "metadata-file" : "spark-warehouse/iceberg/medico_iceberg/metadata/v2.metadata.json"
+  }, {
+    "timestamp-ms" : 1745199695083,
+    "metadata-file" : "spark-warehouse/iceberg/medico_iceberg/metadata/v3.metadata.json"
+  }, {
+    "timestamp-ms" : 1745199699995,
+    "metadata-file" : "spark-warehouse/iceberg/medico_iceberg/metadata/v4.metadata.json"
+  }, {
+    "timestamp-ms" : 1745199703312,
+    "metadata-file" : "spark-warehouse/iceberg/medico_iceberg/metadata/v5.metadata.json"
+  } ]
+}

@@ -20,10 +20,10 @@ spark = (
 
 
 # ALTERAR ESSE CAMINHO DE FORMA QUE APONTE PARA ONDE O DIRETÓRIO DO TRABALHO ESTÁ LOCALIZADO NA SUA MÁQUINA
-file_base = 'file:///home/iuripessoal/Documents/faculdade/engenharia-dados/'
+file_base = 'file:////home/ed/SatcArqInformacaoApacheSpark/'
 
 
-fullpath = os.path.join(file_base, 'SatcArqInformacaoApacheSpark', 'delta-lake', 'spark-warehouse', 'carro_delta')
+fullpath = os.path.join(file_base, 'delta-lake', 'spark-warehouse', 'carro_delta')
 
 # CRIA A TABELA E A PASTA ONDE OS ARQUIVOS PARQUET SÃO SALVOS E EXIBE A TABELA SEM OS DADOS
 spark.sql(
@@ -37,7 +37,7 @@ spark.sql("select * from carro_delta").show()
 
 # CARREGA O ARQUIVO DE HISTÓRICO DE ALTERAÇÕES E EXIBE
 from delta.tables import DeltaTable
-carro = DeltaTable.forPath(spark, "./spark-warehouse/carro_delta")
+carro = DeltaTable.forPath(spark, "./delta-lake/spark-warehouse/carro_delta") # ESTE ENDEREÇO DEVE ESTAR COMPATÍVEL COM O ENDEREÇO fullpath
 carro.history().show()
 
 # INSERE DADOS DENTRO DA TABELA CRIADA ANTERIORMENTE E EXIBE
