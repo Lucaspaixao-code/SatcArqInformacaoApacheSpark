@@ -1,5 +1,4 @@
 from pyspark.sql import SparkSession
-import phonenumbers
 
 # CRIA UMA SEÇÃO SPARK COM O NOME "IcebergLocalDevelopment"
 spark = SparkSession.builder \
