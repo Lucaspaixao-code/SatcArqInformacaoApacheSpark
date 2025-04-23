@@ -52,8 +52,8 @@ python project_iceberg.py
 
  ## Fontes para a implementação do Projeto
 
- - [Repositório Delta lake](github.com/jlsilva01/spark-delta) 
- - [Repositório Iceberg](github.com/jlsilva01/spark-iceberg)
+ - [Repositório Delta lake](https://github.com/jlsilva01/spark-delta) 
+ - [Repositório Iceberg](https://github.com/jlsilva01/spark-iceberg)
 
 ---
 
