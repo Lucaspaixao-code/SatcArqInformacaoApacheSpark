@@ -1,4 +1,4 @@
-# Satc - Arquitetura de Informação com Apache Spark
+# Satc - Engenharia de dados com Apache Spark
 
 Projeto de demonstração de uso de tabelas transacionais Delta Lake e Iceberg com Apache Spark.
 
@@ -58,4 +58,4 @@ Acesse via navegador: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
 
-**Autores**: 
+**Autores**: [Lucas Paixão](https://github.com/Lucaspaixao-code)
