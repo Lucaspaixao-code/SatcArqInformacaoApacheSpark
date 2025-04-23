@@ -1,4 +1,4 @@
-site_name: Satc - Arq Informação Apache Spark
+site_name: Satc - Eng de Dados Apache Spark
 nav:
   - Início: index.md
   - Delta Lake: delta-lake.md

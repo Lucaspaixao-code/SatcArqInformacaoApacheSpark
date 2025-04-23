@@ -48,13 +48,7 @@ python project_iceberg.py
 
 ## Documentação do Projeto
 
-Para gerar a documentação:
-
-```bash
-mkdocs serve
-```
-
-Acesse via navegador: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+ [Clique aqui](https://lucaspaixao-code.github.io/SatcArqInformacaoApacheSpark/)
 
 ---
 
