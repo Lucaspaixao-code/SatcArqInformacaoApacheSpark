@@ -54,6 +54,8 @@ python project_iceberg.py
 
  - [Repositório Delta lake](https://github.com/jlsilva01/spark-delta) 
  - [Repositório Iceberg](https://github.com/jlsilva01/spark-iceberg)
+ - [DataWay BR - Como Usar Python com Apache Spark? Guia Prático de PySpark!](https://youtu.be/WwrX1YVmOyA?si=mGzNc7pd2KDWIzOJ)
+
 
 ---
 
