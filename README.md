@@ -52,12 +52,12 @@ python project_iceberg.py
 
  ## Fontes para a implementação do Projeto
 
- [Repositório Delta lake](github.com/jlsilva01/spark-delta) 
- [Repositório Iceber](github.com/jlsilva01/spark-iceberg)
-
+ - [Repositório Delta lake](github.com/jlsilva01/spark-delta) 
+ - [Repositório Iceberg](github.com/jlsilva01/spark-iceberg)
 
 ---
 
-**Autores**: [Lucas Paixão](https://github.com/Lucaspaixao-code)
-             [Iuri de Lima Marques](https://github.com/iurilimamarques)
-             [William Espindola Cardoso](https://github.com/WilliamEspindolaCardoso)
+**Autores**: 
+ - [Lucas Paixão](https://github.com/Lucaspaixao-code)
+ - [Iuri de Lima Marques](https://github.com/iurilimamarques)
+ - [William Espindola Cardoso](https://github.com/WilliamEspindolaCardoso)
