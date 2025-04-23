@@ -1,8 +1,8 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, FloatType
 from delta import *
 import os
 
+# Inicializa a sessão Spark com suporte ao Delta Lake
 spark = (
     SparkSession
     .builder
@@ -13,50 +13,69 @@ spark = (
     .getOrCreate()
 )
 
-# A cada interação com a tabela 'carro_delta' serão criados arquivos dentro do diretório delta-lake/spark-warehouse/carro_delta.
-# Os arquivos consistem de dois tipos: '.parquet' e '.parquet.crc'.
-# Os arquivos '.parquet' é onde são salvos as informações em formato colunar, onde vão ser lidos de maneira eficiente pelo ambiente analítico.
-# Os arquivos '.parquet.crc' são arquivos de checksum que servem para validar a integridade dos arquivos '.parquet'. 
+# ALTERAR ESSE CAMINHO PARA O DIRETÓRIO LOCAL DA SUA MÁQUINA
+file_base = ' '
 
-
-# ALTERAR ESSE CAMINHO DE FORMA QUE APONTE PARA ONDE O DIRETÓRIO DO TRABALHO ESTÁ LOCALIZADO NA SUA MÁQUINA
-file_base = 'file:////home/ed/SatcArqInformacaoApacheSpark/'
-
-
-fullpath = os.path.join(file_base, 'delta-lake', 'spark-warehouse', 'carro_delta')
+fullpath = os.path.join(file_base, 'RestaurantePedidosDelta', 'delta-lake', 'spark-warehouse', 'pedido_delta')
 
 # CRIA A TABELA E A PASTA ONDE OS ARQUIVOS PARQUET SÃO SALVOS E EXIBE A TABELA SEM OS DADOS
 spark.sql(
-  f"""
-  CREATE OR REPLACE TABLE carro_delta (id INT, placa STRING) 
-  USING delta 
-  LOCATION '{fullpath}'
-  """
+    f"""
+    CREATE OR REPLACE TABLE pedido_delta (
+        id INT, 
+        produto STRING,
+        quantidade INT,
+        preco FLOAT,
+        cliente STRING,
+        data_pedido STRING
+    ) 
+    USING delta 
+    LOCATION '{fullpath}'
+    """
 )
-spark.sql("select * from carro_delta").show()
+spark.sql("SELECT * FROM pedido_delta").show()
 
 # CARREGA O ARQUIVO DE HISTÓRICO DE ALTERAÇÕES E EXIBE
 from delta.tables import DeltaTable
-carro = DeltaTable.forPath(spark, "./delta-lake/spark-warehouse/carro_delta") # ESTE ENDEREÇO DEVE ESTAR COMPATÍVEL COM O ENDEREÇO fullpath
-carro.history().show()
+pedido = DeltaTable.forPath(spark, "./spark-warehouse/pedido_delta")
+pedido.history().show()
 
 # INSERE DADOS DENTRO DA TABELA CRIADA ANTERIORMENTE E EXIBE
-spark.sql("INSERT INTO carro_delta VALUES (1, 'XYZ1J34'), (2, 'RLC5B93'), (3, 'ABV1V23')")
-spark.sql("select * from carro_delta").show()
-carro.history().show(truncate=False)
+spark.sql("""
+    INSERT INTO pedido_delta VALUES 
+    (1, 'Pizza Margherita', 2, 40.50, 'João Silva', '2023-04-01'),
+    (2, 'Hamburguer', 1, 25.00, 'Maria Oliveira', '2023-04-02'),
+    (3, 'Salada Caesar', 1, 18.75, 'Carlos Lima', '2023-04-03')
+""")
+spark.sql("SELECT * FROM pedido_delta").show()
+pedido.history().show(truncate=False)
 
-# CRIA NOVAS COLUNAS NA TABELA E EXIBE
-spark.sql("""alter table carro_delta add column marca STRING, modelo STRING, ano INT""")
-spark.sql("""select * from carro_delta""").show()
+# ADICIONA NOVAS COLUNAS NA TABELA E EXIBE
+spark.sql("""
+    ALTER TABLE pedido_delta ADD COLUMNS (
+        endereco_entrega STRING,
+        status_pedido STRING
+    )
+""")
+spark.sql("SELECT * FROM pedido_delta").show()
 
-# REALIZA UPDATE DOS DADOS INSERIDOS ANTERIORMENTE E EXIBE
-spark.sql("""update carro_delta set marca = 'Renault', modelo = 'Sandero', ano = 2021 where id = 1""")
-spark.sql("""select * from carro_delta""").show()
+# ATUALIZA OS DADOS INSERIDOS ANTERIORMENTE E EXIBE
+spark.sql("""
+    UPDATE pedido_delta 
+    SET endereco_entrega = 'Rua das Flores, 123', status_pedido = 'Entregue' 
+    WHERE id = 1
+""")
+spark.sql("""
+    UPDATE pedido_delta 
+    SET endereco_entrega = 'Av. Paulista, 1000', status_pedido = 'Em Preparo' 
+    WHERE id = 2
+""")
+spark.sql("""
+    UPDATE pedido_delta 
+    SET endereco_entrega = 'Rua do Sol, 456', status_pedido = 'Entregue' 
+    WHERE id = 3
+""")
+spark.sql("SELECT * FROM pedido_delta").show()
 
-# REALIZA UPDATE DOS DADOS INSERIDOS ANTERIORMENTE E EXIBE
-spark.sql('update carro_delta set marca="GM", modelo="tracker", ano=2020 where id = 2')
-spark.sql('update carro_delta set marca="Ford", modelo="EcoSport", ano=2022 where id = 3')
-spark.sql('select * from carro_delta').show()
-
-# REALIZA EXIBIÇÃO DO HISTÓRICO DE ALTERAÇÕES DA TABELA carro_delta
-spark.sql('describe HISTORY carro_delta').show(truncate=False)
+# EXIBE O HISTÓRICO DE ALTERAÇÕES DA TABELA pedido_delta
+spark.sql("DESCRIBE HISTORY pedido_delta").show(truncate=False)
